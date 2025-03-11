@@ -4,37 +4,6 @@ const { User } = require('../db/models');
 
 const { secret, expiresIn } = jwtConfig;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-// Sends a JWT Cookie
-const setTokenCookie = (res, user) => {
-    // Create the token.
-    const safeUser = {
-      id: user.id,
-      email: user.email,
-      username: user.username,
-    };
-    const token = jwt.sign(
-      { data: safeUser },
-      secret,
-      { expiresIn: parseInt(expiresIn) } // 604,800 seconds = 1 week
-    );
-  
-    const isProduction = process.env.NODE_ENV === "production";
-  
-    // Set the token cookie
-    res.cookie('token', token, {
-      maxAge: expiresIn * 1000, // maxAge in milliseconds
-      httpOnly: true,
-      secure: isProduction,
-      sameSite: isProduction && "Lax"
-    });
-  
-    return token;
-  };
-=======
-=======
->>>>>>> auth-setup
 
 // Sends a JWT Cookie
 const setTokenCookie = (res, user) => {
@@ -102,9 +71,4 @@ const requireAuth = function (req, _res, next) {
     return next(err);
   };
 
-<<<<<<< HEAD
   module.exports = { setTokenCookie, restoreUser, requireAuth };
->>>>>>> auth-setup
-=======
-  module.exports = { setTokenCookie, restoreUser, requireAuth };
->>>>>>> auth-setup
