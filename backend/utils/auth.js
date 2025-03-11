@@ -5,6 +5,7 @@ const { User } = require('../db/models');
 const { secret, expiresIn } = jwtConfig;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Sends a JWT Cookie
 const setTokenCookie = (res, user) => {
     // Create the token.
@@ -32,6 +33,8 @@ const setTokenCookie = (res, user) => {
     return token;
   };
 =======
+=======
+>>>>>>> auth-setup
 
 // Sends a JWT Cookie
 const setTokenCookie = (res, user) => {
@@ -99,5 +102,9 @@ const requireAuth = function (req, _res, next) {
     return next(err);
   };
 
+<<<<<<< HEAD
+  module.exports = { setTokenCookie, restoreUser, requireAuth };
+>>>>>>> auth-setup
+=======
   module.exports = { setTokenCookie, restoreUser, requireAuth };
 >>>>>>> auth-setup
