@@ -20,6 +20,12 @@ const validateSignup = [
       .exists({ checkFalsy: true })
       .isLength({ min: 6 })
       .withMessage('Password must be 6 characters or more.'),
+    check('firstName')
+        .exists({checkFalsy: true })
+        .withMessage('Please provide a first name.'),
+    check('lastName')
+        .exists({checkFalsy: true })
+        .withMessage('Please provide a last name.'),
     handleValidationErrors
   ];
 
@@ -29,7 +35,7 @@ const validateSignup = [
     async (req, res) => {
       const { email, password, username } = req.body;
       const hashedPassword = bcrypt.hashSync(password);
-      const user = await User.create({ email, username, hashedPassword });
+      const user = await User.create({ email, username, hashedPassword, firstName, lastName });
   
       const safeUser = {
         id: user.id,
